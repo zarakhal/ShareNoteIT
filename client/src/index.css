@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* --- 1. GLOBAL RESET (PENTING!) --- */
+:root {
+  --ios-bg: #f2f2f7;
+  --ios-card: rgba(255, 255, 255, 0.65);
+  --ios-blue: #007aff;
+  --ios-text: #1c1c1e;
+  --glass-blur: blur(20px);
+}
+
+/* Ini Biang Keroknya: Kita paksa semua elemen hitung border sebagai bagian dari lebar */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Mencegah scroll ke samping */
+  font-family: "Inter", -apple-system, sans-serif;
+  background-color: var(--ios-bg);
+  background-image: radial-gradient(
+      at 0% 0%,
+      hsla(253, 16%, 7%, 0) 0,
+      hsla(253, 16%, 7%, 0) 50%
+    ),
+    radial-gradient(at 0% 0%, hsla(340, 100%, 76%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 100%, 76%, 0.2) 0px, transparent 50%),
+    radial-gradient(
+      at 100% 100%,
+      hsla(160, 100%, 76%, 0.2) 0px,
+      transparent 50%
+    );
+  background-attachment: fixed;
+  color: var(--ios-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- 2. CONTAINER YANG BENAR-BENAR RESPONSIF --- */
+.app-container {
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Batas maksimal di laptop */
+  margin: 0 auto;
+  padding: 20px; /* Jarak dalam aman */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 3. GLASS COMPONENTS --- */
+.glass-header {
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 10px 16px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(25px);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 20px;
+  animation: fadeUp 0.4s ease-out;
+  width: 100%; /* Pastikan tidak melebar */
+}
+
+/* --- 4. INPUT & BUTTONS --- */
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #333;
+  transition: 0.2s;
+  font-family: inherit;
+}
+input:focus,
+select:focus {
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--ios-blue);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #1c1c1e;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+  letter-spacing: -0.5px;
+}
+.btn-primary:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* --- 5. GRID SYSTEM (FIXED FOR MOBILE) --- */
+.notes-grid {
+  display: grid;
+  /* Default untuk Laptop/Tablet: Otomatis isi kolom */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.folder-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden; /* Biar isi gak tumpah */
+}
+.folder-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.folder-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+  word-wrap: break-word; /* Biar teks panjang turun ke bawah */
+}
+
+/* --- 6. MODAL & POPUP --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+.modal-glass {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(30px);
+  border-radius: 28px;
+  padding: 25px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.preview-img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 15px 0;
+  object-fit: contain;
+  max-height: 50vh;
+}
+
+/* Buttons Modal */
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+.btn-cancel {
+  flex: 1;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-confirm {
+  flex: 1;
+  padding: 12px;
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-danger {
+  flex: 1;
+  padding: 12px;
+  background: #ff3b30;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- 7. UTILS --- */
+.filter-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  scrollbar-width: none;
+  width: 100%;
+}
+.filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.4);
+  color: #555;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+  flex-shrink: 0; /* Biar chip gak kegencet */
+}
+.chip.active {
+  background: #1c1c1e;
+  color: white;
+  border-color: #1c1c1e;
+}
+
+.tag {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+.bg-purple {
+  background: #e9dfff;
+  color: #7d54c2;
+}
+.bg-orange {
+  background: #ffe6d6;
+  color: #c9662c;
+}
+.bg-green {
+  background: #d9f2e3;
+  color: #378f5c;
+}
+.bg-blue {
+  background: #d6e8ff;
+  color: #2b6cb0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- 8. KHUSUS HP (MEDIA QUERY FIX) --- */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 15px; /* Kurangi padding container biar lebih lega */
+  }
+
+  .glass-header {
+    padding: 10px 14px;
+    border-radius: 16px;
+  }
+
+  .notes-grid {
+    /* INI SOLUSINYA: Pakai 1fr 1fr biar bagi dua rata, gak peduli pixelnya */
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .folder-card {
+    min-height: 160px; /* Kurangi tinggi dikit */
+    padding: 12px;
+  }
+
+  h4 {
+    font-size: 13px !important;
+  }
+  .glass-header h2 {
+    font-size: 14px !important;
+  }
+
+  /* Sembunyikan tulisan 'Buka' di HP biar gak sempit, sisain panahnya aja */
+  .folder-card span:last-child {
+    font-size: 14px;
+  }
+}
