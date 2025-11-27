@@ -22,7 +22,8 @@ Di lingkungan perkuliahan, kami sering menemui masalah berikut:
 ## 📸 Screenshots
 | Login Page | Dashboard Grid | Preview Modal |
 |:---:|:---:|:---:|
-| <img src="screenshot_login.png" alt="Login" width="250"/> | <img src="screenshot_dashboard.png" alt="Dashboard" width="250"/> | <img src="screenshot_modal.png" alt="Modal" width="250"/> |
+|<img width="1916" height="878" alt="image" src="https://github.com/user-attachments/assets/9350b338-463b-4103-a6cd-f38a8c332335" />
+ | <img src="screenshot_dashboard.png" alt="Dashboard" width="250"/> | <img src="screenshot_modal.png" alt="Modal" width="250"/> |
 
 *(Catatan: Ganti nama file gambar di atas sesuai screenshot aplikasimu)*
 
