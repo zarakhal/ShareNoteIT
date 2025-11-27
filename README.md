@@ -1,5 +1,5 @@
 # 📝 ShareNoteIT
-> **Platform Berbagi Catatan Kuliah Modern dengan Desain Glassmorphism.**
+> **Platform Berbagi Catatan Kuliah Modern.**
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/Glassmorphism-UI-blue?style=for-the-badge)
 
@@ -20,12 +20,16 @@ Di lingkungan perkuliahan, kami sering menemui masalah berikut:
 ---
 
 ## 📸 Screenshots
-| Login Page | Dashboard Grid | Preview Modal |
-|:---:|:---:|:---:|
-|<img width="1916" height="878" alt="image" src="https://github.com/user-attachments/assets/9350b338-463b-4103-a6cd-f38a8c332335" />
- | <img src="screenshot_dashboard.png" alt="Dashboard" width="250"/> | <img src="screenshot_modal.png" alt="Modal" width="250"/> |
+| Halaman | 
+|--------|
+| **Login Page** <br> <img width="1916" src="https://github.com/user-attachments/assets/9350b338-463b-4103-a6cd-f38a8c332335" /> |
+| **Home Page** <br> <img width="1893" src="https://github.com/user-attachments/assets/ad7fc996-72a3-4b66-b841-cf3bca5ef03f" /> |
+| **Preview Modal** <br> <img width="1894" src="https://github.com/user-attachments/assets/f96b5e9e-ad6d-4c4c-88c3-f058101d5844" /> |
+| **Uploads File** <br> <img width="1880" src="https://github.com/user-attachments/assets/7429c23a-6ab4-4ea2-94f5-35f205368d57" /> |
+| **Delete File** <br>  <img width="1881" height="883" alt="image" src="https://github.com/user-attachments/assets/2d8cacc4-1ab7-41c1-8b3b-8e6d31397341" /> |
+| **Rename File** <br>  <img width="1864" height="891" alt="image" src="https://github.com/user-attachments/assets/09764de2-dbc6-4eed-8013-67a1621d6957" /> |
 
-*(Catatan: Ganti nama file gambar di atas sesuai screenshot aplikasimu)*
+
 
 ---
 
